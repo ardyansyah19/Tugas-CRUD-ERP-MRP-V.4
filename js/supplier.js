@@ -1,0 +1,25 @@
+crudPage({
+  title: "Supplier",
+  subtitle: "Pemasok bahan baku. Supplier default per item dipakai saat rencana order MRP dikonversi menjadi Purchase Order.",
+  api: "api/supplier.php", addLabel: "+ Tambah Supplier", searchPlaceholder: "Cari kode, nama, atau kontak...",
+  defaultSort: "kode", deleteLabel: (r) => `supplier "${r.nama}"`,
+  filters: [{ key: "aktif", label: "Semua status", options: [{ value: "1", label: "Aktif" }, { value: "0", label: "Nonaktif" }] }],
+  columns: [
+    { key: "kode", label: "Kode", sort: "kode" },
+    { key: "nama", label: "Nama", sort: "nama" },
+    { key: "kontak", label: "Kontak" },
+    { key: "telepon", label: "Telepon" },
+    { key: "alamat", label: "Alamat" },
+    { key: "aktif", label: "Status", sort: "aktif", render: (r) => (Number(r.aktif) ? badge("Aktif", "green") : badge("Nonaktif", "gray")) },
+  ],
+  fields: [
+    { key: "kode", label: "Kode", required: true, max: 20, placeholder: "SUP-005" },
+    { key: "nama", label: "Nama Supplier", required: true, max: 100 },
+    { key: "kontak", label: "Nama Kontak", max: 100 },
+    { key: "telepon", label: "Telepon", max: 20 },
+    { key: "email", label: "Email", type: "email", max: 100 },
+    { key: "aktif", label: "Status", type: "checkbox", checkLabel: "Aktif" },
+    { key: "alamat", label: "Alamat", type: "textarea", full: true },
+  ],
+  defaults: { aktif: 1 },
+});
