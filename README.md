@@ -1,4 +1,6 @@
-# CRUD Data Mahasiswa V2 — PHP + MySQL (Versi Lebih Lengkap)
+# Tugas CRUD ERP MRP V.4
+By Ahmad Riko Dyansyah
+1462400002
 
 Versi pengembangan dari project CRUD Data Mahasiswa sebelumnya. Struktur dasar
 (PHP + PDO + MySQL + JS Fetch API) dipertahankan agar tetap mudah dijalankan di
