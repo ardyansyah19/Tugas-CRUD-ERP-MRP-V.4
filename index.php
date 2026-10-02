@@ -47,27 +47,6 @@ page_start('Mahasiswa', 'mahasiswa');
         <button id="btnExport" class="btn btn-secondary">⬇ Export CSV</button>
       </div>
 
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Foto</th>
-              <th data-sort="nbi">NBI</th>
-              <th data-sort="nama">Nama</th>
-              <th data-sort="kelas">Kelas</th>
-              <th data-sort="jurusan">Jurusan</th>
-              <th data-sort="angkatan">Angkatan</th>
-              <th data-sort="email">Email</th>
-              <th>No. HP</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody id="dataTable">
-            <tr><td colspan="9" class="loading">Memuat data...</td></tr>
-          </tbody>
-        </table>
-      </div>
-
       <div class="pagination" id="pagination"></div>
     </main>
 
