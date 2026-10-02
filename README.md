@@ -321,29 +321,3 @@ lama (`index.php`) tetap ada, ditambah kolom & filter **Kelas**.
 **Login tetap sama**: `admin` / `admin123` (segera ganti setelah login pertama).
 
 ---
-
-## 12. V4 — Desain Ulang Tampilan dengan Tailwind CSS
-
-V4 adalah **murni pembaruan tampilan** di atas V3 — tidak ada perubahan pada struktur
-database, logika MRP, maupun endpoint API. Semua yang sudah berjalan di V3 (CRUD,
-perhitungan MRP, konversi PO/WO, backflush stok, dsb.) tetap sama persis.
-
-### 12.1 Teknologi
-
-- **Tailwind CSS via Play CDN** (`https://cdn.tailwindcss.com`) — tidak perlu Node.js,
-  npm, atau proses build apa pun. Cukup unggah ke XAMPP/Laragon seperti biasa dan
-  pastikan server punya akses internet (untuk memuat CDN Tailwind & font Google).
-- Seluruh konfigurasi tema (warna `brand`, font `Inter`/`Plus Jakarta Sans`, mode
-  gelap) dan "lapisan komponen" (`@layer components`) didefinisikan dalam satu file:
-  **`partials/assets.php`** (fungsi `tailwind_assets()`). Di sinilah class seperti
-  `.btn`, `.card`, `.badge-blue`, `.modal`, dsb. dipetakan ke utility Tailwind lewat
-  `@apply`. Karena markup yang dihasilkan JavaScript (di `js/*.js`) tetap memakai
-  nama class yang sama seperti V3, seluruh logika JS tidak perlu diubah — hanya
-  definisi visualnya yang sekarang 100% Tailwind.
-- **`partials/layout.php`** dirombak menjadi tata letak **sidebar** modern dengan
-  ikon SVG per menu (fungsi `icon()`), bukan topnav horizontal seperti V3.
-- **`login.php`** dirombak total menjadi tampilan split-screen (hero gradient +
-  form), tanpa mengubah `js/login.js`.
-- Mode gelap sekarang memakai konvensi standar Tailwind: kelas `dark` pada
-  `<html>` (bukan `<body>` seperti V3), dengan inline script di `<head>` yang
-  membaca `localStorage` *sebelum* halaman dirender supaya tidak "kedip".
