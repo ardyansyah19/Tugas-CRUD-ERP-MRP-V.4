@@ -20,12 +20,6 @@
           ${d.per_kelas.map((k) => `<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between"><strong>${esc(k.nama)}</strong><span class="muted">${k.jumlah_mahasiswa} / ${k.kapasitas}</span></div>
             <div class="progress"><span style="width:${Math.min(100, (k.jumlah_mahasiswa / k.kapasitas) * 100)}%"></span></div></div>`).join("")}
         </div>
-        <div class="card"><h3 class="section-title">MRP Terakhir</h3>
-          ${mrp ? `<dl class="kv"><dt>Kode</dt><dd>${esc(mrp.kode)}</dd><dt>Mulai</dt><dd>${fmtTgl(mrp.tanggal_mulai)}</dd><dt>Horizon</dt><dd>${mrp.horizon_minggu} minggu</dd>
-              <dt>Kelas</dt><dd>${esc(mrp.kelas_kode || "-")}</dd><dt>Rencana order</dt><dd>${mrp.total_planned_order}</dd></dl>
-              <a class="btn btn-primary" href="mrp.php?run=${mrp.id}">Buka hasil</a>`
-            : `<p class="muted">Belum pernah menjalankan MRP.</p><a class="btn btn-primary" href="mrp.php">Jalankan MRP</a>`}
-        </div>
       </div>
       <div class="card mt"><h3 class="section-title">Item di Bawah Stok Pengaman</h3>
         ${d.item_kritis.length ? `<div class="table-wrapper"><table class="table-plain"><thead><tr><th>Kode</th><th>Nama</th><th class="right">Stok</th><th class="right">Stok Pengaman</th></tr></thead><tbody>
