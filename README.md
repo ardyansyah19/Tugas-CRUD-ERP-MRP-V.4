@@ -231,33 +231,3 @@ otomatis dari NBI setiap kali data ditambah/diubah (lihat `lib/erp.php` fungsi
 `kelas_id_dari_nbi()`), dan rentangnya sendiri disimpan di tabel `kelas` sehingga
 bisa diubah dari menu **Kelas** tanpa mengubah kode. Ada tombol "Sinkronkan kelas
 mahasiswa" untuk menata ulang seluruh data bila rentang kelas diubah.
-
-### 11.2 Struktur Basis Data Baru
-
-**Akademik**
-- `kelas` — rentang NBI, kapasitas.
-- `mahasiswa` — sama seperti V2, ditambah `kelas_id` (FK ke `kelas`).
-- `users` — tetap sama (login admin).
-
-**Master ERP**
-- `satuan`, `supplier`
-- `item` — RM/SFG/FG, parameter MRP (lead time, lot sizing L4L/FOQ/POQ, stok
-  pengaman, stok berjalan, harga standar).
-- `bom` — Bill of Materials multi-level (1 baris = 1 komponen untuk 1 induk).
-
-**Transaksi**
-- `kebutuhan_independen` — pesanan/forecast (input MPS).
-- `stok_mutasi` — buku besar setiap perubahan stok (masuk/keluar/penyesuaian).
-- `purchase_order` + `purchase_order_detail` — pembelian bahan baku.
-- `work_order` — perintah produksi FG/SFG, terhubung ke `kelas` & `mahasiswa`
-  (PIC) sehingga bisa dipetakan sebagai tugas praktikum per kelas/mahasiswa.
-
-**MRP (snapshot tiap kali dijalankan)**
-- `mrp_run` — header (tanggal mulai, horizon minggu, kelas/PIC penanggung jawab).
-- `mrp_item` — parameter item saat run tsb dijalankan.
-- `mrp_hasil` — tabel MRP per item per minggu (gross, scheduled receipt, proj. on
-  hand, net requirement, planned receipt, planned release).
-- `mrp_planned_order` — daftar rencana order (PO/WO) hasil MRP, bisa dikonversi
-  menjadi PO/WO sungguhan.
-
-**View**: `v_rekap_kelas`, `v_stok_item`, `v_bom_detail`.
