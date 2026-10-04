@@ -17,8 +17,6 @@ crudPage({
     { key: "tanggal_dibutuhkan", label: "Tanggal Dibutuhkan", type: "date", required: true },
     { key: "qty", label: "Jumlah", type: "number", step: "0.01", min: 0.01, required: true },
     { key: "jenis", label: "Jenis", type: "select", required: true, options: [{ value: "pesanan", label: "Pesanan" }, { value: "forecast", label: "Forecast" }] },
-    { key: "no_referensi", label: "No. Referensi", max: 50, placeholder: "SO-0005" },
-    { key: "keterangan", label: "Keterangan", max: 255 },
   ],
   defaults: { jenis: "pesanan" },
 });
